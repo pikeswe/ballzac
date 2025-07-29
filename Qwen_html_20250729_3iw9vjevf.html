@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zac | Professional League of Legends Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6A0DAD;
+            --secondary: #32CD32;
+            --dark: #1a1a2e;
+            --light: #f4f4f4;
+            --gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            overflow-x: hidden;
+            background-color: var(--dark);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        
+        nav.scrolled {
+            background: var(--dark);
+            padding: 15px 5%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo {
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_0.jpg') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        #hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(50, 205, 50, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #28a745;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(50, 205, 50, 0.4);
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        #about {
+            background: linear-gradient(to bottom, var(--dark), #2d1b40);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 3px solid var(--secondary);
+        }
+        
+        /* Stats Section */
+        #stats {
+            background-color: var(--dark);
+            text-align: center;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-box {
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-10px);
+            background: rgba(50, 205, 50, 0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--light);
+        }
+        
+        /* Gallery Section */
+        #gallery {
+            background: linear-gradient(to bottom, #2d1b40, var(--dark));
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            height: 300px;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Fan Board Section */
+        #fan-board {
+            background-color: var(--dark);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .messages-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .message-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .fan-name {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .fan-name::after {
+            content: '•';
+            margin: 0 5px;
+            color: var(--secondary);
+        }
+        
+        .fan-time {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .fan-message {
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        
+        .message-form {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .form-row input {
+            flex: 1;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: white;
+        }
+        
+        .submit-fan-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .submit-fan-btn:hover {
+            background: #5e0bb0;
+            transform: translateY(-2px);
+        }
+        
+        /* Match Updates Section */
+        #match-updates {
+            background: linear-gradient(to bottom, var(--dark), #2d1b40);
+        }
+        
+        .match-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .match-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .team-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .vs {
+            align-self: center;
+            margin: 0 15px;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .countdown-unit {
+            background: rgba(50, 205, 50, 0.1);
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            padding: 10px 15px;
+            min-width: 70px;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--secondary);
+        }
+        
+        .countdown-label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .match-status {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .stream-preview {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .stream-preview-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zac_0.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+        }
+        
+        .play-button::after {
+            content: '';
+            display: inline-block;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid white;
+            margin-left: 3px;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(50, 205, 50, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background: #5e0bb0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 30px 5%;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            #hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                position: absolute;
+                right: 0;
+                height: 100vh;
+                top: 0;
+                background: var(--dark);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+                z-index: 99;
+            }
+            
+            nav ul.active {
+                transform: translateX(0%);
+            }
+            
+            .burger {
+                display: block;
+                z-index: 100;
+            }
+            
+            .burger.toggle .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .burger.toggle .line2 {
+                opacity: 0;
+            }
+            
+            .burger.toggle .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .about-text, .about-image {
+                padding: 0;
+                margin-bottom: 30px;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Zac<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#stats">Stats</a></li>
+            <li><a href="#fan-board">Fan Board</a></li>
+            <li><a href="#match-updates">Live Matches</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Zac "The Pro Gel"</h1>
+        <p>Professional League of Legends Player | Main Zac Specialist</p>
+        <a href="#about" class="cta-button">Learn More</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hi, I'm Zac, a professional League of Legends player with a passion for playing Zac. With years of experience in the competitive scene, I've honed my skills to become one of the top Zac players in the world.</p>
+                <p>Formerly of Team Liquid and currently playing for 100 Thieves, my strategic playstyle and deep understanding of Zac's mechanics have led me to numerous victories and a dedicated fanbase. I specialize in turning team fights with perfectly timed ultimates and creating game-winning opportunities through my unique approach to the champion.</p>
+                <p>When I'm not playing professionally, I stream on Twitch to help aspiring players master Zac and share insights into the professional League of Legends scene. My goal is to elevate the perception of Zac as a competitive champion and inspire others to play creatively.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zac_0.jpg" alt="Zac Loading Screen">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <h2 class="section-title">My Stats</h2>
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number" id="kda">0.0</div>
+                <div class="stat-label">KDA Ratio</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="win-rate">0</div>
+                <div class="stat-label">Win Rate</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="tournaments">0</div>
+                <div class="stat-label">Tournaments Won</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="earnings">$0</div>
+                <div class="stat-label">Total Earnings</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Message Board -->
+    <section id="fan-board">
+        <h2 class="section-title">Fan Messages</h2>
+        <div class="messages-container" id="messages-container">
+            <!-- Messages will be populated by JavaScript -->
+        </div>
+        
+        <div class="message-form">
+            <h3 style="margin-bottom: 15px; text-align: center;">Send a Message</h3>
+            <div class="form-row">
+                <input type="text" id="fan-name" placeholder="Your Name" required>
+                <input type="text" id="fan-handle" placeholder="Your Handle (optional)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="fan-message" placeholder="Your message for Zac" required>
+            </div>
+            <button type="submit" class="submit-fan-btn" id="submit-fan-message">Send Message</button>
+        </div>
+    </section>
+
+    <!-- Live Match Updates -->
+    <section id="match-updates">
+        <h2 class="section-title">Live Match Updates</h2>
+        <div class="match-container">
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="team">
+                        <div class="team-logo">100T</div>
+                        <div>100 Thieves</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">TL</div>
+                        <div>Team Liquid</div>
+                    </div>
+                </div>
+                
+                <h3>LCS Summer Split - Week 5</h3>
+                <p>Friday, August 25th at 7:00 PM PST</p>
+                
+                <div class="countdown" id="match-countdown">
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+                
+                <div class="match-status" id="match-status">UPCOMING MATCH</div>
+            </div>
+            
+			<div class="stream-preview">
+				<div class="stream-preview-content" id="stream-preview-content">
+					<div class="play-button" id="stream-play"></div>
+				</div>
+			</div>
+            
+            <div class="match-card">
+                <h3 style="margin-bottom: 15px;">Recent Match Result</h3>
+                <div class="match-header">
+                    <div class="team">
+                        <div class="team-logo">100T</div>
+                        <div>100 Thieves</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team">
+                        <div class="team-logo">C9</div>
+                        <div>Cloud9</div>
+                    </div>
+                </div>
+                
+                <p style="margin: 15px 0; font-size: 1.5rem; color: var(--secondary);">100 Thieves won 3-1</p>
+                <p>Zac's performance: 7/2/15 | KDA: 11.0 | MVP of the series</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_0.jpg" alt="Zac Splash Art">
+            </div>
+            <div class="gallery-item">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_1.jpg" alt="Zac Splash Art">
+            </div>
+            <div class="gallery-item">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_2.jpg" alt="Zac Splash Art">
+            </div>
+            <div class="gallery-item">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_3.jpg" alt="Zac Splash Art">
+            </div>
+            <div class="gallery-item">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_4.jpg" alt="Zac Splash Art">
+            </div>
+            <div class="gallery-item">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_26.jpg" alt="Zac Splash Art">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" title="Twitch"><i>T</i></a>
+            <a href="#" title="Twitter"><i>T</i></a>
+            <a href="#" title="Instagram"><i>I</i></a>
+            <a href="#" title="YouTube"><i>Y</i></a>
+        </div>
+        <p>&copy; 2023 Zac. All rights reserved. League of Legends and all associated content are trademarks of Riot Games.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('toggle');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                burger.classList.remove('toggle');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Change nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Stats counter animation
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = progress * (end - start) + start;
+                
+                if (element.id === 'win-rate') {
+                    element.textContent = Math.floor(value) + '%';
+                } else if (element.id === 'earnings') {
+                    element.textContent = '$' + Math.floor(value).toLocaleString();
+                } else {
+                    element.textContent = value.toFixed(1);
+                }
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Initialize stats animation when section is in view
+        document.addEventListener('DOMContentLoaded', () => {
+            const statsSection = document.getElementById('stats');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateValue(document.getElementById('kda'), 0, 3.5, 2000);
+                        animateValue(document.getElementById('win-rate'), 0, 65, 2000);
+                        animateValue(document.getElementById('tournaments'), 0, 5, 2000);
+                        animateValue(document.getElementById('earnings'), 0, 250000, 2000);
+                        observer.unobserve(statsSection);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(statsSection);
+            
+            // Form submission
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Message sent! (This is a demo, no actual message was sent)');
+                    this.reset();
+                });
+            }
+            
+            // Gallery image fix - ensure all images load properly
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.onerror = function() {
+                    // Fallback to a different skin if the image fails to load
+                    const currentSrc = this.src;
+                    const skinMatch = currentSrc.match(/Zac_(\d+)\.jpg/);
+                    if (skinMatch && skinMatch[1]) {
+                        const skinNum = parseInt(skinMatch[1]);
+                        // Try the default skin as fallback
+                        this.src = 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_0.jpg';
+                    }
+                };
+            });
+            
+            // Fan Message Board functionality
+            const messagesContainer = document.getElementById('messages-container');
+            const submitFanMessage = document.getElementById('submit-fan-message');
+            const fanName = document.getElementById('fan-name');
+            const fanHandle = document.getElementById('fan-handle');
+            const fanMessage = document.getElementById('fan-message');
+            
+            // Sample fan messages
+            const sampleMessages = [
+                { name: "LeagueFan2023", handle: "@leaguefan", message: "Zac's split push strategy is unmatched! Keep dominating the LCS!", time: "2h ago" },
+                { name: "GelMaster", handle: "@zacfans", message: "Your Zac play in the last match was absolutely insane! That ult saved the game!", time: "5h ago" },
+                { name: "ProGamer", handle: "@proplayer", message: "Watching your streams has improved my support play so much. Thank you!", time: "1d ago" },
+                { name: "LoLNewbie", handle: "@learningz", message: "As a new player, your Zac guide videos are helping me understand the champion mechanics!", time: "3d ago" },
+                { name: "EsportsFan", handle: "@fan123", message: "100 Thieves is looking strong this split. Can't wait for your next match!", time: "1w ago" }
+            ];
+            
+            // Render messages
+            function renderMessages() {
+                messagesContainer.innerHTML = '';
+                const messages = JSON.parse(localStorage.getItem('zacFanMessages') || '[]').concat(sampleMessages);
+                
+                messages.slice(0, 5).forEach(msg => {
+                    const messageCard = document.createElement('div');
+                    messageCard.className = 'message-card';
+                    messageCard.innerHTML = `
+                        <div class="fan-name">${msg.name}<span class="fan-handle">${msg.handle ? `@${msg.handle}` : ''}</span><span class="fan-time">${msg.time}</span></div>
+                        <div class="fan-message">${msg.message}</div>
+                    `;
+                    messagesContainer.appendChild(messageCard);
+                });
+            }
+            
+            // Submit new message
+            submitFanMessage.addEventListener('click', () => {
+                if (fanName.value.trim() === '' || fanMessage.value.trim() === '') {
+                    alert('Please fill in your name and message!');
+                    return;
+                }
+                
+                const newMessage = {
+                    name: fanName.value,
+                    handle: fanHandle.value,
+                    message: fanMessage.value,
+                    time: 'Just now'
+                };
+                
+                let messages = JSON.parse(localStorage.getItem('zacFanMessages') || '[]');
+                messages.unshift(newMessage);
+                // Keep only the 5 most recent messages
+                if (messages.length > 5) {
+                    messages = messages.slice(0, 5);
+                }
+                localStorage.setItem('zacFanMessages', JSON.stringify(messages));
+                
+                // Reset form
+                fanName.value = '';
+                fanHandle.value = '';
+                fanMessage.value = '';
+                
+                // Re-render messages
+                renderMessages();
+                
+                alert('Message posted to fan board!');
+            });
+            
+            // Initial render
+            renderMessages();
+            
+            // Match countdown timer
+            const matchDate = new Date();
+            matchDate.setDate(matchDate.getDate() + 7); // 7 days from now
+            matchDate.setHours(19, 0, 0, 0); // 7:00 PM
+            
+            function updateCountdown() {
+                const now = new Date();
+                const distance = matchDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (distance < 0) {
+                    document.getElementById('match-status').textContent = 'LIVE NOW';
+                    document.getElementById('match-status').style.backgroundColor = '#ff4444';
+                }
+            }
+            
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+			// Stream preview interaction
+			document.getElementById('stream-play').addEventListener('click', function() {
+				const streamContent = document.getElementById('stream-preview-content');
+				streamContent.innerHTML = `
+					<div style="width: 100%; height: 100%; background: rgba(0,0,0,0.7); 
+						 display: flex; flex-direction: column; align-items: center; 
+						 justify-content: center; color: white; padding: 20px; text-align: center; 
+						 border-radius: 10px;">
+						<h3 style="color: var(--secondary); margin-bottom: 15px;">Zac Match Highlights</h3>
+						<p style="margin-bottom: 20px; max-width: 80%;">This professional match highlights 
+						   video is available on YouTube but cannot be embedded directly.</p>
+						<a href="https://www.youtube.com/watch?v=b91jJ7HNsXQ" target="_blank" 
+						   style="background: var(--primary); color: white; padding: 12px 25px; 
+								  border-radius: 5px; text-decoration: none; font-weight: bold; 
+								  transition: all 0.3s; display: inline-flex; align-items: center;">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
+								 viewBox="0 0 16 16" style="margin-right: 8px;">
+								<path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.773.22 1.173q.053.444.078.9260 2.69.092 4.987.02.443.054.926.06.484.113.927.117 1.097.28 1.982.52 3.044.787 3.807 1.468 4.477 2.157 5.417A12.12 12.12 0 0 1 12.88 15c-.058.087-.115.176-.17.266a10.057 10.057 0 0 1-1.994 2.284c-.91.9-2.343 1.97-3.994 1.97-1.65 0-3.084-.94-4.002-1.907-1.523-1.603-2.592-3.83-2.97-5.857-.094-.505-.166-1.02-.221-1.534C.095 9.282 0 7.24 0 5.023 0 2.708.934 1.074 2.75 0 3.814-.246 4.776-.265 6.658-.268h.206c1.12.004 5.285.034 6.107.336 0 0 .145.17.245.27.98.98 2.52 3.15 2.52 3.15s-2.54 4.12-3.52 5.1-1.94 1.94-2.22 2.22c-.28.28-.77.28-1.06 0-.28-.28-.28-.77 0-1.06.28-.28 2.06-2.06 3.14-3.14l1.55-1.55c.15-.15.18-.46.07-.61a.514.514 0 0 0-.62-.08L8 8.85l-5.22 5.22c-.29.29-.63.47-.99.47-.36 0-.7-.18-.99-.47L.82 13.09c-.29-.29-.47-.63-.47-.99 0-.36.18-.7.47-.99l1.55-1.55c.15-.15.46-.18.61-.07.14.1.43.38.62.57l2.84 2.84c.19.19.51.26.75.17.24-.09.44-.33.51-.6.07-.27-.01-.56-.21-.76L5.71 8 8 5.71l4.74-4.74c.29-.29.63-.47.99-.47.36 0 .7.18.99.47.29.29.47.63.47.99 0 .36-.18.7-.47.99L9.4 6.4c-.15.15-.46.18-.61.07a.514.514 0 0 1-.07-.61L11.15 3.45l1.55-1.55c.29-.29.63-.47.99-.47.36 0 .7.18.99.47.29.29.47.63.47.99 0 .36-.18.7-.47.99l-1.55 1.55c-.15.15-.46.18-.61.07a.514.514 0 0 1-.07-.61L13.59 1.79z"/>
+							</svg>
+							Watch Full Highlights on YouTube
+						</a>
+						<p style="margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.7);">
+							Click above to view Zac's match highlights
+						</p>
+					</div>
+				`;
+			});
+        });
+    </script>
+</body>
+</html>
